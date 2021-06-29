@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ULABITOHelpDesk.WebApp.Models;
+using ULABITOHelpDesk.AppOnline.Models;
 
-namespace ULABITOHelpDesk.WebApp.Controllers
+namespace ULABITOHelpDesk.AppOnline.Controllers
 {
     public class HomeController : Controller
     {

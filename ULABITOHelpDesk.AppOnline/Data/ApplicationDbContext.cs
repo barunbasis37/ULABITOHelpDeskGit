@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ULABITOHelpDesk.WebApp.Data
+namespace ULABITOHelpDesk.AppOnline.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

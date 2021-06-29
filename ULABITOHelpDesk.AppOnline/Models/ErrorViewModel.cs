@@ -1,6 +1,6 @@
 using System;
 
-namespace ULABITOHelpDesk.WebApp.Models
+namespace ULABITOHelpDesk.AppOnline.Models
 {
     public class ErrorViewModel
     {

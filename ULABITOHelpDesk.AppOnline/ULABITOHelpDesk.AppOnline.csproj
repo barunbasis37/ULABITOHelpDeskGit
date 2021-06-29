@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>aspnet-ULABITOHelpDesk.WebApp-1AA96868-1EDE-46F0-98ED-8A9667D5E3B4</UserSecretsId>
+    <UserSecretsId>aspnet-ULABITOHelpDesk.AppOnline-BCCB4AAB-E1FB-4892-A174-E83203E5A72E</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
   </PropertyGroup>
 

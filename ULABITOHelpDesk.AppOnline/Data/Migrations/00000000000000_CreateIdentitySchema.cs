@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace ULABITOHelpDesk.WebApp.Data.Migrations
+namespace ULABITOHelpDesk.AppOnline.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

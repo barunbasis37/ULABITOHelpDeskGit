@@ -11,9 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ULABITOHelpDesk.WebApp.Data;
+using ULABITOHelpDesk.AppOnline.Data;
 
-namespace ULABITOHelpDesk.WebApp
+namespace ULABITOHelpDesk.AppOnline
 {
     public class Startup
     {

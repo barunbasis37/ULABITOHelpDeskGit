@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,20 @@ namespace ULABITOHelpDesk.Models
         [Display(Name = "Employee Name")]
         public string Name { get; set; }
         [Required]
-        public string Designation { get; set; }
-        [Display(Name = "Program Name")]
-        public string ProgramId { get; set; }
-        [ForeignKey("ProgramId"), Column(Order = 1)]
-        public virtual Program Program { get; set; }
-        [Display(Name = "Program Name")]
-        public string DepartmentId { get; set; }
+        [Display(Name = "Designation")]
+        public string DesignationId { get; set; }
+        [ForeignKey("DesignationId")]
+        public Designation Designation1 { get; set; }
+        [Display(Name = "Department Name")]
+        public int DepartmentId { get; set; }
         [ForeignKey("DepartmentId"), Column(Order = 1)]
         public virtual Department Department { get; set; }
+        [Required]
+        [Display(Name = "Member Since")]
+        public DateTime MemberSinceDate { get; set; }
+        [Required]
+        [Display(Name = "Active")]
+        public bool IsActive { get; set; }
+
     }
 }

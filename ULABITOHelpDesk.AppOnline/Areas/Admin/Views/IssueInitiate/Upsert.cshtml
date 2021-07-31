@@ -1,0 +1,150 @@
+﻿@model ULABITOHelpDesk.Models.ViewModels.IssueInitiateVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = "Create School";
+}
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        @if (Model.IssueInitiate.Id != 0)
+        {
+
+            <input type="hidden" asp-for="IssueInitiate.Id" />
+            <input type="hidden" asp-for="IssueInitiate.QueryId" />
+            <input type="hidden" asp-for="IssueInitiate.CreatedBy" />
+            <input type="hidden" asp-for="IssueInitiate.CreatedIp" />
+            <input type="hidden" asp-for="IssueInitiate.CreatedDate" />
+            //edit
+            title = "Edit Issue Subtype";
+        }
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    Program
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.IssueInitiate.ProgramId, Model.ProgrmaList, "-Select a Program",
+                        new { @class = "form-control" })
+                    <span asp-validation-for="IssueInitiate.ProgramId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    Issue Sub-type
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.IssueInitiate.IssueSubTypeId, Model.IssueSubtypeList, "-Select a Issue sub-type",
+                        new { @class = "form-control" })
+                    <span asp-validation-for="IssueInitiate.IssueSubTypeId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IssueInitiate.Description"></label>
+                </div>
+                <div class="col-8">
+
+                    <textarea asp-for="IssueInitiate.Description" class="form-control"></textarea>
+                    <span asp-validation-for="IssueInitiate.Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IssueInitiate.IsCompleted"></label>
+                </div>
+                <div class="col-8">
+
+                    @Html.CheckBoxFor(m => m.IssueInitiate.IsCompleted)
+                    <span asp-validation-for="IssueInitiate.IsCompleted" class="text-danger"></span>
+                </div>
+            </div>
+            
+
+            <div class="form-group row">
+                <div class="col-4">
+                    Image
+                </div>
+                <div class="col-8">
+                    <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+                </div>
+            </div>
+            <input type="hidden" asp-for="IssueInitiate.IsDeleted" value="false" />
+            <input type="hidden" asp-for="IssueInitiate.CreatedBy" value="423036" />
+            <input type="hidden" asp-for="IssueInitiate.CreatedIp" value="172.0.0.0" />
+            <input type="hidden" asp-for="IssueInitiate.UpdatedBy" value="423036" />
+            <input type="hidden" asp-for="IssueInitiate.UpdatedIp" value="172.0.0.0" />
+
+            @*<div class="form-group row">
+            <div class="col-4">
+                <label asp-for="IsActive"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+        </div>*@
+            <br />
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    @if (Model.IssueInitiate.Id != 0)
+                    {
+
+                        <partial name="_EditAndBackToListButton" model="Model.IssueInitiate.Id" />
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Create</button>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        @if (Model.IssueInitiate.Id != 0)
+        {
+            <div class="col-3 offset-1 pt-4">
+                <img src="@Model.IssueInitiate.ImagePath" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+            </div>
+        }
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://cdn.tiny.cloud/1/ts0708avjz6hbhhzi12375edn6ln2fznt4nkp6jvmtfaiky1/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+    <script>
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+
+
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                swal("Error", "Please select an image", "error");
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+}

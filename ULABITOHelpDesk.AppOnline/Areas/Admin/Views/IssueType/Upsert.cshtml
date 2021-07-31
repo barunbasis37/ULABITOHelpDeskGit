@@ -1,0 +1,92 @@
+﻿@model ULABITOHelpDesk.Models.ViewModels.IssueTypeVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = "Create School";
+}
+
+
+<form method="post">
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+        @if (Model.IssueType.Id != 0)
+        {
+
+            <input type="hidden" asp-for="IssueType.Id" />
+            <input type="hidden" asp-for="IssueType.QueryId" />
+            <input type="hidden" asp-for="IssueType.CreatedBy" />
+            <input type="hidden" asp-for="IssueType.CreatedIp" />
+            <input type="hidden" asp-for="IssueType.CreatedDate" />
+            //edit
+            title = "Edit School";
+        }
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8 pt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IssueType.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="IssueType.Name" class="form-control" />
+                    <span asp-validation-for="IssueType.Name" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-4">
+                    User Type
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.IssueType.UserTypeId, Model.UserTypeList, "-Select a User Type",
+                        new { @class = "form-control" })
+                    <span asp-validation-for="IssueType.UserTypeId" class="text-danger"></span>
+                </div>
+            </div>
+            <input type="hidden" asp-for="IssueType.IsDeleted" value="false" />
+            <input type="hidden" asp-for="IssueType.CreatedBy" value="423036" />
+            <input type="hidden" asp-for="IssueType.CreatedIp" value="172.0.0.0" />
+            <input type="hidden" asp-for="IssueType.UpdatedBy" value="423036" />
+            <input type="hidden" asp-for="IssueType.UpdatedIp" value="172.0.0.0" />
+
+            @*<div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="IsActive"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="IsActive" class="form-control" />
+                        <span asp-validation-for="IsActive" class="text-danger"></span>
+                    </div>
+                </div>*@
+            <br />
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    @if (Model.IssueType.Id != 0)
+                    {
+
+                        <partial name="_EditAndBackToListButton" model="Model.IssueType.Id" />
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Create</button>
+                            </div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

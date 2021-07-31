@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULABITOHelpDesk.Models", "ULABITOHelpDesk.Models\ULABITOHelpDesk.Models.csproj", "{A1EC6515-9106-4A36-A6C6-7DC3E51F4511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ULABITOHelpDesk.Models", "ULABITOHelpDesk.Models\ULABITOHelpDesk.Models.csproj", "{A1EC6515-9106-4A36-A6C6-7DC3E51F4511}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULABITOHelpDesk.DataAccess", "ULABITOHelpDesk.DataAccess\ULABITOHelpDesk.DataAccess.csproj", "{4BF05F43-51C5-4DDA-93AA-F8B602AEA8A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ULABITOHelpDesk.DataAccess", "ULABITOHelpDesk.DataAccess\ULABITOHelpDesk.DataAccess.csproj", "{4BF05F43-51C5-4DDA-93AA-F8B602AEA8A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULABITOHelpDesk.Utility", "ULABITOHelpDesk.Utility\ULABITOHelpDesk.Utility.csproj", "{7C5BC110-1CCE-440A-AEF6-657166A655D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ULABITOHelpDesk.Utility", "ULABITOHelpDesk.Utility\ULABITOHelpDesk.Utility.csproj", "{7C5BC110-1CCE-440A-AEF6-657166A655D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ULABITOHelpDesk.AppOnline", "ULABITOHelpDesk.AppOnline\ULABITOHelpDesk.AppOnline.csproj", "{A3A9432C-F17B-4EED-AC72-C6A226CF9F6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ULABITOHelpDesk.AppOnline", "ULABITOHelpDesk.AppOnline\ULABITOHelpDesk.AppOnline.csproj", "{A3A9432C-F17B-4EED-AC72-C6A226CF9F6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,7 +11,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ULABITOHelpDesk.AppOnline.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Newtonsoft.Json;
+using ULABITOHelpDesk.DataAccess;
+using ULABITOHelpDesk.DataAccess.Data;
+using ULABITOHelpDesk.DataAccess.Repository;
+using ULABITOHelpDesk.DataAccess.Repository.IRepository;
+using ULABITOHelpDesk.Utility;
+
 
 namespace ULABITOHelpDesk.AppOnline
 {
@@ -31,10 +38,16 @@ namespace ULABITOHelpDesk.AppOnline
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            
+            services.AddIdentity<IdentityUser,IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +76,8 @@ namespace ULABITOHelpDesk.AppOnline
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    //pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area=Student}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
